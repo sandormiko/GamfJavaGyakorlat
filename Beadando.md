@@ -1,8 +1,8 @@
 Készítsünk egy alkalmazást, mely az alábbi üzleti igényt valósítja meg:
 
 Adott két szerepkör, Tanár és Admin, akik egyetemen felvehető kurzusokat kezelnek.
-A Tanár joggal rendelkező felhasználók kurzusokat tudnak létrehozni, de
-amit aztán az Admin felhasználók törölhetnek.
+A Tanár joggal rendelkező felhasználók kurzusokat tudnak létrehozni,
+amiket aztán az Admin felhasználók törölhetnek.
 
 Egy Admin felhasználó látja és törölheti az összes Tanár felhasználó kurzusát.
 
@@ -15,7 +15,8 @@ Admin felhasználó a kurzus azonosítója alapján tud egy kurzust törölni.
 
 Adatbázisba vegyünk fel 2 táblát(kurzus, felhasznalo).
 Kurzus tábla
--kurzus_id primary key
+
+-kurzus_id (primary key)
 
 -azonosito(egyedi)
 
@@ -30,7 +31,8 @@ Kurzus tábla
 
 
 Felhasználó
-felhasznalo_id primary key
+
+felhasznalo_id (primary key)
 
 -azonositó(legyen egyedi)
 
@@ -40,8 +42,8 @@ felhasznalo_id primary key
 
 
 Mindegyik táblának legyen elsődleges kulcsa, egy külön erre a célre szolgáló oszlop(kurzus_id, felhasználó_id).
-A kulcsok legyenek generáltak(auto increment, identity) ne mi állítsuk be az értékét.
-A két tábla foreign keyyel legyen összekapcsolva, hogy tudjuk melyik Tanár hozta létre az adott kurzust.
+A kulcsok legyenek generáltak(identity) ne mi állítsuk be az értékét.
+A két tábla foreign key-vel legyen összekapcsolva, hogy tudjuk melyik Tanár hozta létre az adott kurzust.
 Az azonosító típusú oszlopok legyen egyediek(unique constraint).
 
 Extra feladat
