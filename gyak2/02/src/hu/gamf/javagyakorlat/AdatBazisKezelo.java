@@ -48,7 +48,6 @@ public class AdatBazisKezelo {
             return lekerdezettSzamitasok;
         } catch (SQLException e) {
             System.err.println("Hiba történt a számítás mentése során");
-            e.printStackTrace();
             throw e;
         } finally {
             close(rs);
@@ -79,7 +78,6 @@ public class AdatBazisKezelo {
 
         } catch (SQLException e) {
             System.err.println("Hiba történt a számítások lekérdezése során");
-            e.printStackTrace();
             throw e;
         } finally {
             close(ps);
@@ -121,7 +119,6 @@ public class AdatBazisKezelo {
             return szemely;
         } catch (SQLException e) {
             System.err.println("Hiba történt a személy lekérdezése során");
-            e.printStackTrace();
             throw e;
         } finally {
             close(rs);
@@ -157,7 +154,6 @@ public class AdatBazisKezelo {
 
         } catch (SQLException e) {
             System.err.println("Hiba történt a személy mentése során");
-            e.printStackTrace();
             throw e;
 
         } finally {
