@@ -1,0 +1,17 @@
+1.Csomagoljuk ki a hsqldb-2.4.0.zip fájlt
+
+2.lépjünk be a hsqldb\bin\ könyvárba
+
+3.Először futtassuk a runServer.bat fájlt.
+Ha kész akkor az utolsó sorban megjelenik a "From command line, use ..." szöveg
+Hagyjuk nyitva ezt az ablakot,ha bezárjuk a szerver leáll
+
+
+4.Ezek után futtassuk a  runManagerSwing.bat fájlt, ami egy felhasználói felületet biztosít az adatbázishoz
+
+5.A felület megjelenése után a Type mező értékét állítsuk át "HSQL Database Engine In-Memory"-ról "HSQL Database  Engine Server"-re
+
+6.Ezután kattintsunk az OK gombra
+
+Az adatbázis szerver kész. kapcsolódni a "jdbc:hsqldb:hsql://localhost/" url-en keresztül SA felhasználónévvel és üres("") jelszóval
+lehet.
