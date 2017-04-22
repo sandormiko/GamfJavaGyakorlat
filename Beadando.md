@@ -11,10 +11,12 @@ Bármennyi felhasználó regisztrálhat a rendszerbe, regisztráció során adju
 Ne engedjük, hogy egy felhasználó többször regisztráljon, ha az azonosítója már létezik a rendszerben,
 ne mentsük el újra az adatait.
 
-Admin felhasználó a kurzu azonosítója alpaján tud egy kurzust törölni
+Admin felhasználó a kurzus azonosítója alapján tud egy kurzust törölni.
 
 Adatbázisba vegyünk fel 2 táblát(kurzus, felhasznalo).
 Kurzus tábla
+-kurzus_id primary key
+
 -azonosito(egyedi)
 
 -rövid leírás a kurzusról
@@ -28,6 +30,7 @@ Kurzus tábla
 
 
 Felhasználó
+felhasznalo_id primary key
 
 -azonositó(legyen egyedi)
 
