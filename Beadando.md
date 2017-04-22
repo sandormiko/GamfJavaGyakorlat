@@ -32,7 +32,7 @@ Kurzus tábla
 -kurzus státusza
 
 Felhasználó
--azonositó
+-azonositó(legyen egyedi)
 -név
 -szerepkör(Tanár vagy Admin)
 
@@ -40,7 +40,7 @@ Mindegyik táblának legyen elsődleges kulcsa, egy külön erre a célre szolg�
 A kulcsok legyenek generáltak(auto increment, identity) ne mi állítsuk be az értékét.
 A két tábla foreign keyyel legyen összekapcsolva, hogy tudjuk melyik Tanár hozta létre az adott kurzust.
 
-Extra feladat(Amennyiben többen oldják meg a feladatot)
+Extra feladat
 Készítsünk egy history táblát, amiben a kurzus minden egyes állapotát eltároljuk, ezáltal láthatóvá
 válik, hogy ki milyen változtatásokat hajtott végre rajtuk. Amikor a kurzus létrejön, vagy státuszát
 módosítják, be kell szúrni egy sortba history táblába.
