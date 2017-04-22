@@ -22,9 +22,10 @@ public class GamfJavaGyakorlat {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<Szamitas> szamitasLista = new ArrayList<>();
-        SzamitasService service = new SzamitasService();
-      
+        try {
+            ArrayList<Szamitas> szamitasLista = new ArrayList<>();
+            SzamitasService service = new SzamitasService();
+
             Scanner scanner = new Scanner(System.in);
             System.out.println("Add meg a nettó összeget");
 
@@ -32,40 +33,39 @@ public class GamfJavaGyakorlat {
 
             System.out.println("Add meg az áfa értékét");
             String afaErtekString = scanner.next();
-            Szamitas szamitas = null;
-            try {
-                szamitas = service.szamit(nettoOsszegString, afaErtekString);
-            } catch (Exception e) {
-                System.err.println("Az áfa értékre csak 15 vagy 27 lehet");
-                
-            }
+            Szamitas szamitas = service.szamit(nettoOsszegString, afaErtekString);
+
             System.out.println("Adó értéke " + szamitas.adoErtek);
             System.out.println("Bruttó összeg " + szamitas.bruttoErtek);
-            voltEIlyenSzamitas(szamitasLista,szamitas);
+            voltEIlyenSzamitas(szamitasLista, szamitas);
             szamitasLista.add(szamitas);
-            
+
             AdatBazisKezelo db = new AdatBazisKezelo();
-            
+
             db.mentSzamitast(szamitas);
-        
-        for (Szamitas sz : db.getSzamitasok()) {
-            System.out.println(sz);
+
+            for (Szamitas sz : db.getSzamitasok()) {
+                System.out.println(sz);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
         }
 
     }
 
-    private static void voltEIlyenSzamitas(ArrayList<Szamitas> szamitasok, Szamitas ujSzamitas){
-        for(Szamitas aktualis:szamitasok){
-            if(aktualis.nettoOsszeg.equals(ujSzamitas.nettoOsszeg)){
-                if(aktualis.afaErteke.equals(ujSzamitas.afaErteke)){
+    private static void voltEIlyenSzamitas(ArrayList<Szamitas> szamitasok, Szamitas ujSzamitas) {
+        for (Szamitas aktualis : szamitasok) {
+            if (aktualis.nettoOsszeg.equals(ujSzamitas.nettoOsszeg)) {
+                if (aktualis.afaErteke.equals(ujSzamitas.afaErteke)) {
                     //System.out.println("Ilyen Számítás már volt");
                 }
             }
         }
         List<Szamitas> egyezoSzamitasok = szamitasok.stream()
                 .filter(aktualis -> aktualis.nettoOsszeg.equals(ujSzamitas.nettoOsszeg) && aktualis.afaErteke.equals(ujSzamitas.afaErteke)).collect(Collectors.toList());
-        if(egyezoSzamitasok.size() > 0){
-             System.out.println("Ilyen Számítás már volt");
+        if (egyezoSzamitasok.size() > 0) {
+            System.out.println("Ilyen Számítás már volt");
         }
     }
 }

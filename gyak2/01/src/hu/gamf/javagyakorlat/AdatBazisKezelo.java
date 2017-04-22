@@ -12,8 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -25,7 +23,7 @@ public class AdatBazisKezelo {
     private static final String DB_USER = "sa";
     private static final String DB_USER_PASSWORD = "";
 
-    public ArrayList<Szamitas> getSzamitasok() {
+    public ArrayList<Szamitas> getSzamitasok() throws SQLException {
         ArrayList<Szamitas> lekerdezettSzamitasok = new ArrayList<>();
         Connection conn = null;
         Statement stmt = null;
@@ -47,18 +45,18 @@ public class AdatBazisKezelo {
                 lekerdezettSzamitasok.add(sz);
             }
             return lekerdezettSzamitasok;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.err.println("Hiba történt a számítások lekérdezése során");
+            throw e;
         } finally {
             close(rs);
             close(stmt);
             close(conn);
         }
-        return null;
 
     }
 
-    public void mentSzamitast(Szamitas sz) {
+    public void mentSzamitast(Szamitas sz) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
@@ -77,7 +75,8 @@ public class AdatBazisKezelo {
             ps.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Hiba történt a számítások mentése során");
+            throw e;
         } finally {
             close(ps);
             close(conn);
