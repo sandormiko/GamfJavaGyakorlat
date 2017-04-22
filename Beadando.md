@@ -17,7 +17,9 @@ Azt, hogy mikor kerül egy kurzus az Adminhoz vagy Tanárhoz egy státusz oszlop
 Vegyük  fel ezt az oszlopot a kurzus táblába, értékei az alábbiak lehetnek:
 
 -Létrehozott
+
 -Jóváhagyásra vár
+
 -Jóváhagyott
 
 Amikor a Tanár létrehozza a kurzust, az Létrehozott állapotba kerül( ekkor az admin még nem látja és nem hagyhatja jóvá) 
@@ -26,16 +28,25 @@ Amikor az Admin jóváhagyja Jóváhagyott állapotba kerül, ezután már egyik
 
 Adatbázisba vegyünk fel 2 táblát(kurzus, felhasznalo).
 Kurzus tábla
+
 -rövid leírás a kurzusról
+
 -óraszám
+
 -időpont(pl Kedd 14-15 óráig)
+
 -létszám
+
 -kurzus státusza
 
 Felhasználó
+
 -azonositó(legyen egyedi)
+
 -név
+
 -szerepkör(Tanár vagy Admin)
+
 
 Mindegyik táblának legyen elsődleges kulcsa, egy külön erre a célre szolgáló oszlop(kurzus_id, felhasználó_id).
 A kulcsok legyenek generáltak(auto increment, identity) ne mi állítsuk be az értékét.
