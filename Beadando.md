@@ -15,6 +15,7 @@ ne mentsük el újra az adatait.
 
 Azt, hogy mikor kerül egy kurzus az Adminhoz vagy Tanárhoz egy státusz oszlop mondja meg.
 Vegyük  fel ezt az oszlopot a kurzus táblába, értékei az alábbiak lehetnek:
+
 -Létrehozott
 -Jóváhagyásra vár
 -Jóváhagyott
