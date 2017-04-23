@@ -1,3 +1,5 @@
+HSQLDB indítása:
+
 1.Csomagoljuk ki a hsqldb-2.4.0.zip fájlt
 
 2.lépjünk be a hsqldb\bin\ könyvárba
@@ -15,3 +17,10 @@ Hagyjuk nyitva ezt az ablakot,ha bezárjuk a szerver leáll
 
 Az adatbázis szerver kész. kapcsolódni a "jdbc:hsqldb:hsql://localhost/" url-en keresztül SA felhasználónévvel és üres("") jelszóval
 lehet.
+
+Netbeans beállítása:
+
+Ahhoz, hogy csatlakozni tudjunk az adatbázishoz, hozzá kell adnunk a projektünkhoz a HSQLDB JDBC driverét
+Jobb klikk a projekten(a nevén) -> Properties -> Libraries -> Compile tab -> Add JAR/Folder
+-> Adjuk hozzá a kicsomagolt HSQLDB állományból a hsqldb\lib\ könyvárban található hsqldb.jar fájlt
+-> Klikk az OK gombra
