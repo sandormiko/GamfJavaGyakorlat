@@ -1,6 +1,7 @@
 A második gyakorlat kódja.
 
-Adatbázis séma létrehozó szkriptek az adott változat initscripts könyvtárában találhatóak
+Adatbázis séma létrehozó szkriptek az adott változat initscript könyvtárában találhatóak
+A szkriptek futtatása előtt mindig dobjuk el a korábban létrehozott táblákat.
 
 01 könyvtárban lévő változat elmenti a számításainkat egyetlen táblába, és le is kérdezi onnan
 
