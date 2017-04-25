@@ -1,5 +1,6 @@
-FONTOS: Az adatbázis csak a akkor indul el, ha  8-as Java  verzió telepítve van.
+FONTOS: A HSQLDB gyakorlaton használt 2.4.0-ás változata csak a akkor indul el, ha  8-as Java verzió telepítve van.
 (Telepített Java verzió ellenőrzése parancssorból: java -version )
+Ha kisebb Java verzió van telepítve, akkor használjunk korábbi HSQLDB verziót(pl 2.2.9)
 
 HSQLDB indítása:
 
