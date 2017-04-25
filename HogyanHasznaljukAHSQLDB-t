@@ -1,3 +1,5 @@
+FONTOS: Az adatbázis csak a akkor indul el, ha  8-as Java  verzió telepítve van.
+
 HSQLDB indítása:
 
 1.Csomagoljuk ki a hsqldb-2.4.0.zip fájlt
