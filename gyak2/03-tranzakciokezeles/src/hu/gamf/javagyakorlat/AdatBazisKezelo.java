@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author Mikó Sándor
  */
-public class AdatBazisKezelo {
+public class AdatBazisKezelo extends AbsztraktAdatbazisKezelo {
 
     private Connection conn = null;
 
@@ -81,15 +81,7 @@ public class AdatBazisKezelo {
         }
     }
 
-    private void close(AutoCloseable closeAble) {
-        if (closeAble != null) {
-            try {
-                closeAble.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
+    
 
     public Szemely getSzemelyByAzonosito(String azonosito) throws SQLException {
         Szemely szemely = null;

@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
  *
  * @author 4-11-3-Hallgato
  */
-public class GamfJavaGyakorlat {
+public class GamfJavaGyakorlat extends AbsztraktAdatbazisKezelo{
 
     private static final String DB_URL = "jdbc:hsqldb:hsql://localhost";
     private static final String DB_USER = "sa";
@@ -33,14 +33,14 @@ public class GamfJavaGyakorlat {
      */
     public static void main(String[] args) {
         Connection conn = null;
-        try {
+        Scanner scanner = null;
+        try{
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_USER_PASSWORD);
             conn.setAutoCommit(false);
-            ArrayList<Szamitas> szamitasLista = new ArrayList<>();
             AdatBazisKezelo db = new AdatBazisKezelo(conn);
             SzamitasService service = new SzamitasService();
 
-            Scanner scanner = new Scanner(System.in, "iso-8859-2");
+            scanner = new Scanner(System.in, "iso-8859-2");
             System.out.println("Add meg az azonositojat");
 
             String azonosito = scanner.next();
@@ -57,9 +57,7 @@ public class GamfJavaGyakorlat {
             szamitas.szemelyId = szemely.szemelyId;
             System.out.println("Adó értéke " + szamitas.adoErtek);
             System.out.println("Bruttó összeg " + szamitas.bruttoErtek);
-            voltEIlyenSzamitas(szamitasLista, szamitas);
-            szamitasLista.add(szamitas);
-
+            
             db.mentSzamitast(szamitas);
 
             for (Szamitas sz : db.getSzamitasok()) {
@@ -68,25 +66,18 @@ public class GamfJavaGyakorlat {
             conn.commit();
         } catch (Exception e) {
             e.printStackTrace();
-
-            rollbackEsKapcsolatBezarasa(conn);
-            System.exit(1);
-
+            
+            rollback(conn);
+          
+        }finally{
+            close(scanner);
+            close(conn);
         }
 
     }
 
-    private static void rollbackEsKapcsolatBezarasa(Connection conn) {
-        try {
-            if (conn != null) {
-                conn.rollback();
-                conn.close();
-            }
-        } catch (SQLException ex) {
-           System.err.println(ex.getMessage());
-        }
-    }
-
+    
+     
     private static Szemely szemelytRegisztralHaUj(AdatBazisKezelo db, String azonosito, Scanner scanner) throws ParseException, SQLException {
         Szemely szemely = db.getSzemelyByAzonosito(azonosito);
 
